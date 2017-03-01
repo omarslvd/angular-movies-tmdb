@@ -1,0 +1,7 @@
+<div class="row">
+  <input class="input-lg form-control well" type="search" #searchInput (keyup)="search(searchInput.value)" placeholder="Search...">
+</div>
+<div class="row">
+  <app-result-list [results]="searchResults" (onResultSelected)="onResultSelected($event)"></app-result-list>
+  <app-detail [selected]="resultSelected"></app-detail>
+</div>

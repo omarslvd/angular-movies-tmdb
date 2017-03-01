@@ -1,0 +1,6 @@
+<div class="col-md-4">
+  <h3>Search Results</h3>
+  <p *ngFor="let result of results | async">
+    <a href="javascript:;" (click)="getDetails(result)">{{result.original_title}}</a>
+  </p>
+</div>

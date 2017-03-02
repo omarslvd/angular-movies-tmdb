@@ -1,3 +1,10 @@
-<div class="col-md-8" *ngIf="selected">
-  {{selected.original_title}}
+<div class="col-md-8" *ngIf="selected" style="display:flex">
+  <div class="poster">
+    <!--<img src="https://image.tmdb.org/t/p/w185{{selected.poster_path}}" alt="">-->
+    <img src="https://image.tmdb.org/t/p/w342{{selected.poster_path}}" alt="{{selected.original_title}}">
+  </div>
+  <div>
+    <h3>{{selected.original_title}}</h3>
+    <p>{{selected.overview}}</p>
+  </div>
 </div>

@@ -4,7 +4,20 @@
     <img src="https://image.tmdb.org/t/p/w342{{selected.poster_path}}" alt="{{selected.original_title}}">
   </div>
   <div>
-    <h3>{{selected.original_title}}</h3>
+    <h3>{{selected.original_title}} <small>({{selected.release_date.substring(0,4)}})</small></h3>
     <p>{{selected.overview}}</p>
+    <div class="row">
+      <div class="col-md-4">{{selected.vote_average}} vote average</div>
+      <div class="col-md-4">{{selected.vote_count}} vote count</div>
+      <div class="col-md-4">{{selected.popularity}} popularity</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div></div>
+        <div></div>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
+    </div>
   </div>
 </div>

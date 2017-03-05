@@ -6,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
 const API = {
-  SEARCH: 'https://api.themoviedb.org/3/search/movie?api_key=<api_key>&language=en-US&query=<query>&page=<page>&include_adult=false'
+  SEARCH: 'https://api.themoviedb.org/3/search/movie?api_key=<api_key>&language=en-US&query=<query>&page=<page>&include_adult=false',
+  CREDITS: 'https://api.themoviedb.org/3/movie/<movie_id>/credits?api_key=<api_key>'
 }
 
 @Injectable()
@@ -20,6 +21,13 @@ export class TmdbService {
     return this.http.get(API.SEARCH.replace('<api_key>', `${this.apiKey}`).replace('<query>', `${searchTerm}`).replace('<page>', `${this.page}`))
       .toPromise()
       .then(data => data.json().results)
+      .catch(this.handleError);
+  }
+
+  getCredits(movieId: number): Promise<any> {
+    return this.http.get(API.CREDITS.replace('<movie_id>', `${movieId}`).replace('<api_key>', `${this.apiKey}`))
+      .toPromise()
+      .then(data => data.json())
       .catch(this.handleError);
   }
 
